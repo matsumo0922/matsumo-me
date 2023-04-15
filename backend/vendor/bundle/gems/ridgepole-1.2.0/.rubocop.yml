@@ -1,0 +1,55 @@
+AllCops:
+  Exclude:
+    - "gemfiles/**/*"
+    - "omnibus-ridgepole/**/*"
+    - "vendor/bundle/**/*"
+  TargetRubyVersion: 2.5
+  NewCops: enable
+Bundler/OrderedGems:
+  Include:
+    - "Appraisals"
+Layout/HeredocIndentation:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/BlockNesting:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Layout/LineLength:
+  Max: 200
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Max: 106
+Metrics/ParameterLists:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/MixinUsage:
+  Exclude:
+    - "spec/**/*"
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Layout/ClosingHeredocIndentation:
+  Enabled: false
+Style/NumericPredicate:
+  Enabled: false
+Lint/MissingSuper:
+  Enabled: false
+Style/StringConcatenation:
+  Enabled: false
+Style/SoleNestedConditional:
+  Enabled: false
+Lint/DuplicateBranch:
+  Enabled: false
+Style/OptionalBooleanParameter:
+  Enabled: false

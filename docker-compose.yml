@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  db:
+    platform: linux/x86_64
+    image: mysql:8.0.20
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sql-mode=NO_ENGINE_SUBSTITUTION
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_PASSWORD: "${DB_PASSWORD}"
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-db:/var/lib/mysql
+
+  backend:
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/usr/src/app
+      - ./backend/vendor/bundle:/usr/local/bundle
+    environment:
+      DB_USERNAME: "${DB_USERNAME}"
+      DB_PASSWORD: "${DB_PASSWORD}"
+      DB_HOST: "${DB_HOST}"
+      DB_NAME: "${DB_NAME}"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
+    ports:
+      - "3000:3000"
+
+volumes:
+  mysql-db:
+    driver: local

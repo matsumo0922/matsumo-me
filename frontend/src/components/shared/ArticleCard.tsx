@@ -1,53 +1,78 @@
-import Image from "next/image";
 import NextLink from "next/link";
-import { FC } from "react";
+import React, { FC } from "react";
 import {ArticleHeader} from "@/models";
+import {DateTime} from "@/components/shared/DateTime";
+import {Flex, Heading, HStack, Link, Wrap, WrapItem, Image, Text} from "@chakra-ui/react";
+import {getFaviconUrl} from "@/lib/getFaviconUrl";
+import {getTypeText} from "@/lib/getTypeText";
 
 type Props = { article: ArticleHeader };
 
 export const ArticleCard: FC<Props> = ({ article }) => {
     return (
-        <article>
+        <Flex
+            as="article"
+            borderRadius="md"
+            flexDirection="column"
+            py="4"
+            px="6"
+            bgColor="white"
+            boxShadow="md">
+
             <DateTime
-                className={articleCardStyles.publishedAt}
-                datetime={article.createdAt}
-                format="yyyy年MM月dd日 HH時mm分"
+                datetime={article.publishedAt}
+                format="yyyy年MM月dd日"
             />
-            <h3 className={articleCardStyles.title}>
-                {article.type === "stin-blog" ? (
-                    <NextLink
-                        className={articleCardStyles.titleLink}
-                        href={pagesPath.articles._slug(article.slug).$url()}>
+
+            <Heading
+                as="h3"
+                fontSize={['lg', 'xl']}
+                lineHeight={1.6}
+                mt="4"
+                flex={1}>
+
+                {article.type === "markdown" ? (
+                    <NextLink href={`/articles/${article.id}`}>
                         {article.title}
                     </NextLink>
                 ) : (
-                    <a
-                        className={articleCardStyles.titleLink}
-                        href={article.url}
-                        target="_blank"
-                        rel="noreferrer">
+                    <Link href={article.url}>
                         {article.title}
-                    </a>
+                    </Link>
                 )}
-            </h3>
-            {article.type === "stin-blog" ? (
-                <ul className={articleCardStyles.tags}>
+            </Heading>
+
+            {article.type === "markdown" && (
+                <Wrap marginTop="8">
                     {article.tags.map(tag => (
-                        <li key={tag}>
-                            <TagLink tag={tag} />
-                        </li>
+                        <WrapItem key={tag}>
+                            {tag}
+                        </WrapItem>
                     ))}
-                </ul>
-            ) : (
-                <a
-                    className={articleCardStyles.zennLink}
-                    href={`https://zenn.dev/${config.social.zenn}`}
-                    target="_blank"
-                    rel="noreferrer">
-                    <Image src={getFaviconUrl("zenn.dev", 16)} alt="" width={16} height={16} />
-                    <span>Zenn</span>
-                </a>
+                </Wrap>
             )}
-        </article>
+
+            {article.type === "zenn" || article.type === "qiita" && (
+                <Link
+                    href={article.url}
+                    isExternal
+                    w="fit-content"
+                    marginTop="8">
+                    <HStack>
+                        <Image
+                            src={getFaviconUrl(article.type, 16)}
+                            alt=""
+                            htmlWidth={16}
+                            htmlHeight={16}
+                            w="4"
+                            h="4"
+                        />
+                        <Text fontSize="md" as="div">
+                            {getTypeText(article.type)}
+                        </Text>
+                    </HStack>
+                </Link>
+            )}
+        </Flex>
     );
 };

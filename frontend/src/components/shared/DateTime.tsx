@@ -11,7 +11,7 @@ export const DateTime: FC<Props> = ({ datetime, format, ...props }) => {
 
   return (
     <time dateTime={datetime} {...props}>
-      {formatter(date, format)}
+      {datetime}
     </time>
   );
 };

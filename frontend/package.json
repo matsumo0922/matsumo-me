@@ -24,10 +24,14 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@chakra-ui/icons": "^2.0.18",
-    "@chakra-ui/react": "^2.5.5",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@mdx-js/loader": "^2.3.0",
+    "@next/mdx": "^13.3.0",
+    "@vanilla-extract/babel-plugin": "^1.2.0",
+    "@vanilla-extract/css": "^1.11.0",
+    "@vanilla-extract/next-plugin": "^2.1.2",
+    "@vanilla-extract/webpack-plugin": "^2.2.0",
     "framer-motion": "^10.12.2"
   }
 }

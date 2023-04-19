@@ -1,4 +1,4 @@
-export function getTypeUrl(pageType: string) {
+export function getTypeText(pageType: string) {
   let title: string;
 
   switch (pageType) {

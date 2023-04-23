@@ -65,7 +65,9 @@ export const ArticleCard: FC<Props> = ({article}) => {
                         <span>{getTypeText(article.resource)}</span>
                     </a>
 
-                    {article.tags.map(tag => (
+                    <div style={{width: "0.5rem"}} />
+
+                    {article.tags.slice(0, 3).map(tag => (
                         <TagLink tag={tag} />
                     ))}
                 </div>

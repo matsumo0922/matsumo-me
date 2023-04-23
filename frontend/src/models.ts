@@ -6,18 +6,18 @@ type ArticleHeaderBase = {
 }
 
 export type AllArticleHeader = ArticleHeaderBase & {
-    type: string,
+    resource: string,
     url: string,
     tags: string[];
 }
 
 export type BlogArticleHeader = ArticleHeaderBase & {
-    type: "markdown";
+    resource: "markdown";
     tags: string[];
 }
 
 export type QiitaArticleHeader = ArticleHeaderBase & {
-    type: "qiita",
+    resource: "qiita",
     url: string,
     tags: string[];
     likes: number;
@@ -26,14 +26,8 @@ export type QiitaArticleHeader = ArticleHeaderBase & {
 }
 
 export type ZennArticleHeader = ArticleHeaderBase & {
-    type: "zenn",
+    resource: "zenn",
     url: string,
 }
 
 export type ArticleHeader = BlogArticleHeader | QiitaArticleHeader | ZennArticleHeader;
-
-export type Article = {
-    header: BlogArticleHeader;
-    bodyMdText: string;
-    tocMdText: string;
-}

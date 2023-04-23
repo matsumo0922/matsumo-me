@@ -67,6 +67,8 @@ namespace :blog do
         published_at: Time.zone.parse(item["pubDate"]),
       )
     end
+
+    true
   end
 
   def fetch_markdown

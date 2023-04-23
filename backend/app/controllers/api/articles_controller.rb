@@ -9,6 +9,9 @@ class Api::ArticlesController < ActionController::API
 
       base.store("tags", tags)
 
+      base["published_at"] = I18n.l(base["published_at"], format: :long)
+      base["created_at"] = I18n.l(base["created_at"], format: :long)
+
       base
     end
 

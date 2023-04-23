@@ -1,16 +1,17 @@
 import Image from "next/image";
 import NextLink from "next/link";
-import React, { FC } from "react";
+import React, {FC} from "react";
 import {articleCardStyles} from "./ArticleCard.css";
-import {ArticleHeader} from "@/models";
+import {AllArticleHeader, ArticleHeader} from "@/models";
 import {DateTime} from "@/components/shared/DateTime";
 import Link from "next/link";
 import {getFaviconUrl} from "@/lib/getFaviconUrl";
 import {getTypeText} from "@/lib/getTypeText";
+import {TagLink} from "@/components/shared/TagLink";
 
-type Props = { article: ArticleHeader };
+type Props = { article: AllArticleHeader };
 
-export const ArticleCard: FC<Props> = ({ article }) => {
+export const ArticleCard: FC<Props> = ({article}) => {
     return (
         <article className={articleCardStyles.card}>
             <DateTime
@@ -20,7 +21,7 @@ export const ArticleCard: FC<Props> = ({ article }) => {
             />
 
             <h3 className={articleCardStyles.title}>
-                {article.type === "markdown" ? (
+                {article.resource === "markdown" ? (
                     <NextLink
                         className={articleCardStyles.titleLink}
                         href={`/articles/${article.id}`}>
@@ -37,7 +38,7 @@ export const ArticleCard: FC<Props> = ({ article }) => {
                 )}
             </h3>
 
-            {article.type === "markdown" && (
+            {article.resource === "markdown" && (
                 <ul className={articleCardStyles.tags}>
                     {article.tags.map(tag => (
                         <li key={tag}>
@@ -47,21 +48,27 @@ export const ArticleCard: FC<Props> = ({ article }) => {
                 </ul>
             )}
 
-            {(article.type === "zenn" || article.type === "qiita") && (
-                <a
-                    className={articleCardStyles.zennLink}
-                    href={article.url}
-                    target="_blank"
-                    rel="noreferrer">
+            {article.resource == "qiita" && (
+                <div className={articleCardStyles.qiitaRoot}>
+                    <a
+                        className={articleCardStyles.resourceLink}
+                        href={article.url}
+                        target="_blank"
+                        rel="noreferrer">
 
-                    <Image
-                        src={getFaviconUrl("zenn.dev", 16)}
-                        alt="" width={16}
-                        height={16}
-                    />
+                        <Image
+                            src={getFaviconUrl(article.resource, 16)}
+                            alt="" width={16}
+                            height={16}
+                        />
 
-                    <span>{getTypeText(article.type)}</span>
-                </a>
+                        <span>{getTypeText(article.resource)}</span>
+                    </a>
+
+                    {article.tags.map(tag => (
+                        <TagLink tag={tag} />
+                    ))}
+                </div>
             )}
         </article>
     );

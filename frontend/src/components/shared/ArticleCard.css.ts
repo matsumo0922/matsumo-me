@@ -38,6 +38,13 @@ export const articleCardStyles = {
         },
     }),
 
+    qiitaRoot: style({
+        display: "flex",
+        alignContent: "center",
+        gap: resources.spacing[2],
+        marginTop: resources.spacing[8],
+    }),
+
     tags: style({
         display: "flex",
         flexWrap: "wrap",
@@ -46,10 +53,9 @@ export const articleCardStyles = {
         marginTop: resources.spacing[8],
     }),
 
-    zennLink: style({
-        display: "inline-flex",
+    resourceLink: style({
+        display: "flex",
         width: "fit-content",
-        marginTop: resources.spacing[8],
         alignItems: "center",
         gap: resources.spacing[2],
         boxShadow: resources.focusRingShadow.before,

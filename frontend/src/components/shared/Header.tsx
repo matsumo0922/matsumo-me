@@ -7,7 +7,7 @@ export const Header: FC = () => {
     return (
         <div className={headerStyles.root}>
             <header className={headerStyles.header}>
-                <h1>Header</h1>
+                <h1>matsumo.me</h1>
                 <nav className={headerStyles.navigations}>
                     <NavLinks />
                 </nav>

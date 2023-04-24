@@ -8,11 +8,19 @@ export const tagLinkStyle = style({
   display: "inline-flex",
   alignItems: "center",
   textDecoration: "none",
+  paddingTop: resources.spacing[1],
+  paddingBottom: resources.spacing[1],
   paddingInlineStart: resources.spacing[2],
   paddingInlineEnd: resources.spacing[2],
   fontSize: resources.fontSizes.sm,
+  fontWeight: 500,
+  backgroundColor: resources.colors.primary[100],
+  color: resources.colors.primary[800],
   lineHeight: 1.2,
-  backgroundColor: resources.colors.gray[300],
-  color: resources.colors.gray[800],
   whiteSpace: "nowrap",
+  zIndex: 1,
+
+  ":hover": {
+    textDecoration: "underline",
+  },
 });

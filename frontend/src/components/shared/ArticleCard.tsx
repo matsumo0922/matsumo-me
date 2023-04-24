@@ -21,31 +21,19 @@ export const ArticleCard: FC<Props> = ({article}) => {
             />
 
             <h3 className={articleCardStyles.title}>
-                {article.resource === "markdown" ? (
-                    <NextLink
-                        className={articleCardStyles.titleLink}
-                        href={`/articles/${article.id}`}>
-                        {article.title}
-                    </NextLink>
-                ) : (
-                    <a
-                        className={articleCardStyles.titleLink}
-                        href={article.url}
-                        target="_blank"
-                        rel="noreferrer">
-                        {article.title}
-                    </a>
-                )}
+                {article.title}
             </h3>
 
+            <a
+                className={articleCardStyles.titleLink}
+                href="https://google.com" />
+
             {article.resource === "markdown" && (
-                <ul className={articleCardStyles.tags}>
-                    {article.tags.map(tag => (
-                        <li key={tag}>
-                            {tag}
-                        </li>
+                <div className={articleCardStyles.resourceTagRoot}>
+                    {article.tags.slice(0, 3).map((tag, i) => (
+                        <TagLink tag={tag} key={i} />
                     ))}
-                </ul>
+                </div>
             )}
 
             {article.resource == "qiita" && (

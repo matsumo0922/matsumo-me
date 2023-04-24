@@ -72,6 +72,20 @@ namespace :blog do
   end
 
   def fetch_markdown
+    Dir.glob("articles/*.md").each do |path|
+      front_matter = FrontMatterParser::Parser.parse_file(path)
 
+      next if ArticleMarkdown.find_by(title: front_matter.front_matter["title"])
+
+      Article.create_with_markdown(
+        title: front_matter.front_matter["title"],
+        body: front_matter.content,
+        url: "https://github.com/CAIOS0922/matsumo-me/tree/master/backend/articles/#{File.basename(path)}",
+        published_at: Time.zone.parse(front_matter.front_matter["published_at"]),
+        tags: front_matter.front_matter["tags"],
+      )
+    end
+
+    true
   end
 end

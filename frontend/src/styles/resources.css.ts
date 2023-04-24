@@ -133,7 +133,7 @@ export const resources = createGlobalTheme(":root", {
             800: "#1a202c",
             900: "#171923",
         },
-        facebook: {
+        primary: {
             50: "#e8f4f9",
             100: "#d9dee9",
             200: "#b7c2da",
@@ -144,6 +144,18 @@ export const resources = createGlobalTheme(":root", {
             700: "#29487d",
             800: "#223b67",
             900: "#1e355b",
+        },
+        secondary: {
+            50: "#faf5ff",
+            100: "#e9d8fd",
+            200: "#d6bcfa",
+            300: "#b794f4",
+            400: "#9f7aea",
+            500: "#805ad5",
+            600: "#6b46c1",
+            700: "#553c9a",
+            800: "#44337a",
+            900: "#322659",
         },
         twitter: {
             50: "#e5f4fd",
@@ -156,18 +168,6 @@ export const resources = createGlobalTheme(":root", {
             700: "#1681bf",
             800: "#136b9e",
             900: "#0d4d71",
-        },
-        primary: {
-            50: "#faf5ff",
-            100: "#e9d8fd",
-            200: "#d6bcfa",
-            300: "#b794f4",
-            400: "#9f7aea",
-            500: "#805ad5",
-            600: "#6b46c1",
-            700: "#553c9a",
-            800: "#44337a",
-            900: "#322659",
         },
         text: {
             primary: "",

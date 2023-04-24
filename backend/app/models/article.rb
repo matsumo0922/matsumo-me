@@ -64,4 +64,34 @@ class Article < ApplicationRecord
     article.save!
     article
   end
+
+  def self.create_with_markdown(
+    title:,
+    body:,
+    url:,
+    published_at:,
+    tags:
+  )
+    article = new
+
+    article.assign_attributes(
+      title: title,
+      resource: "markdown",
+      published_at: published_at,
+    )
+
+    article.build_article_markdown(
+      title: title,
+      body: body,
+      url: url,
+      published_at: published_at,
+    )
+
+    tags.each do |tag|
+      article.article_tags.build(tag: tag)
+    end
+
+    article.save!
+    article
+  end
 end

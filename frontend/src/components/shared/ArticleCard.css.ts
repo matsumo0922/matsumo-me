@@ -5,10 +5,16 @@ export const articleCardStyles = {
     card: style({
         display: "flex",
         flexDirection: "column",
+        position: "relative",
         backgroundColor: resources.colors.gray[100],
         borderRadius: resources.radius.md,
         boxShadow: resources.shadows.md,
         padding: `${resources.spacing[4]} ${resources.spacing[6]}`,
+        transition: "box-shadow 0.2s",
+
+        ":hover": {
+            boxShadow: resources.shadows.lg,
+        }
     }),
 
     publishedAt: style({
@@ -23,19 +29,11 @@ export const articleCardStyles = {
 
     titleLink: style({
         display: "block",
-        lineHeight: 1.6,
-        fontSize: resources.fontSizes.lg,
-        fontWeight: 500,
-        color: resources.colors.text.primary,
-        boxShadow: resources.focusRingShadow.before,
-        transition: "box-shadow 0.2s",
-
-        ":hover": {
-            textDecoration: "underline",
-        },
-        ":focus-visible": {
-            boxShadow: resources.focusRingShadow.after,
-        },
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
     }),
 
     resourceTagRoot: style({

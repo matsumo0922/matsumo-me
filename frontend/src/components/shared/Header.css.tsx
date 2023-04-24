@@ -7,6 +7,7 @@ export const headerStyles = {
     root: style({
         position: "sticky",
         top: 0,
+        zIndex: 99,
         backdropFilter: "blur(8px)",
     }),
 

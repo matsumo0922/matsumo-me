@@ -49,7 +49,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
             )}
 
             {article.resource == "qiita" && (
-                <div className={articleCardStyles.qiitaRoot}>
+                <div className={articleCardStyles.resourceTagRoot}>
                     <a
                         className={articleCardStyles.resourceLink}
                         href={article.url}
@@ -67,9 +67,28 @@ export const ArticleCard: FC<Props> = ({article}) => {
 
                     <div style={{width: "0.5rem"}} />
 
-                    {article.tags.slice(0, 3).map(tag => (
-                        <TagLink tag={tag} />
+                    {article.tags.slice(0, 3).map((tag, i) => (
+                        <TagLink tag={tag} key={i} />
                     ))}
+                </div>
+            )}
+
+            {article.resource == "zenn" && (
+                <div className={articleCardStyles.resourceTagRoot}>
+                    <a
+                        className={articleCardStyles.resourceLink}
+                        href={article.url}
+                        target="_blank"
+                        rel="noreferrer">
+
+                        <Image
+                            src={getFaviconUrl(article.resource, 16)}
+                            alt="" width={16}
+                            height={16}
+                        />
+
+                        <span>{getTypeText(article.resource)}</span>
+                    </a>
                 </div>
             )}
         </article>

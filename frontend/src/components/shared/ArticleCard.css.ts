@@ -38,11 +38,11 @@ export const articleCardStyles = {
         },
     }),
 
-    qiitaRoot: style({
+    resourceTagRoot: style({
         display: "flex",
         alignContent: "center",
         gap: resources.spacing[2],
-        marginTop: resources.spacing[8],
+        marginTop: resources.spacing[4],
     }),
 
     tags: style({
@@ -50,7 +50,7 @@ export const articleCardStyles = {
         flexWrap: "wrap",
         listStyle: "none",
         gap: resources.spacing[2],
-        marginTop: resources.spacing[8],
+        marginTop: resources.spacing[4],
     }),
 
     resourceLink: style({

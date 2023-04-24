@@ -6,6 +6,7 @@ export const homeStyles = {
     container: style([
         appContainer,
         {
+            display: "flex",
             marginTop: resources.spacing[4],
             marginBottom: resources.spacing[16],
         },

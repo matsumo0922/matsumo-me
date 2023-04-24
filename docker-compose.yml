@@ -42,6 +42,8 @@ services:
     ports:
       - "3000:3000"
       - "9229:9229"
+    environment:
+      - WATCHPACK_POLLING=true
 
 volumes:
   mysql-db:

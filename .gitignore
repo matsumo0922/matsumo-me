@@ -2,9 +2,10 @@
 .idea
 
 /backend/.bundle
-/backend/log/*
-/backend/tmp/*
-/backend/storage/*
+/backend/vendor
+/backend/log
+/backend/tmp
+/backend/storage
 /backend/config/master.key
 /backend/.env*
 

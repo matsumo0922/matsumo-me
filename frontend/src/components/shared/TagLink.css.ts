@@ -7,6 +7,7 @@ export const tagLinkStyle = style({
   minHeight: resources.sizes[6],
   display: "inline-flex",
   alignItems: "center",
+  textDecoration: "none",
   paddingInlineStart: resources.spacing[2],
   paddingInlineEnd: resources.spacing[2],
   fontSize: resources.fontSizes.sm,

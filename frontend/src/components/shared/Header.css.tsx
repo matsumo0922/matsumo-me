@@ -50,6 +50,7 @@ export const headerStyles = {
 
     navigationLink: style({
         display: "none",
+        color: "black",
         fontWeight: "bold",
         textDecoration: "none",
         boxShadow: resources.focusRingShadow.before,

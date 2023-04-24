@@ -9,5 +9,4 @@ export const sideBarStyle = style({
    alignItems: "flex-start",
    gap: resources.spacing[4],
    paddingLeft: resources.spacing[8],
-   paddingRight: resources.spacing[4],
 });

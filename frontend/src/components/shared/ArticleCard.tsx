@@ -24,9 +24,17 @@ export const ArticleCard: FC<Props> = ({article}) => {
                 {article.title}
             </h3>
 
-            <a
-                className={articleCardStyles.titleLink}
-                href="https://google.com" />
+            {article.resource === "markdown" && (
+                <NextLink
+                    className={articleCardStyles.titleLink}
+                    href={`/articles/${article.id}`} />
+            )}
+
+            {(article.resource == "qiita" || article.resource == "zenn") && (
+                <a
+                    className={articleCardStyles.titleLink}
+                    href={article.url} />
+            )}
 
             {article.resource === "markdown" && (
                 <div className={articleCardStyles.resourceTagRoot}>
@@ -38,12 +46,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
 
             {article.resource == "qiita" && (
                 <div className={articleCardStyles.resourceTagRoot}>
-                    <a
-                        className={articleCardStyles.resourceLink}
-                        href={article.url}
-                        target="_blank"
-                        rel="noreferrer">
-
+                    <div className={articleCardStyles.resourceLink}>
                         <Image
                             src={getFaviconUrl(article.resource, 16)}
                             alt="" width={16}
@@ -51,7 +54,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
                         />
 
                         <span>{getTypeText(article.resource)}</span>
-                    </a>
+                    </div>
 
                     <div style={{width: "0.5rem"}} />
 
@@ -63,12 +66,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
 
             {article.resource == "zenn" && (
                 <div className={articleCardStyles.resourceTagRoot}>
-                    <a
-                        className={articleCardStyles.resourceLink}
-                        href={article.url}
-                        target="_blank"
-                        rel="noreferrer">
-
+                    <div className={articleCardStyles.resourceLink}>
                         <Image
                             src={getFaviconUrl(article.resource, 16)}
                             alt="" width={16}
@@ -76,7 +74,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
                         />
 
                         <span>{getTypeText(article.resource)}</span>
-                    </a>
+                    </div>
                 </div>
             )}
         </article>

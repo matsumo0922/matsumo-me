@@ -7,11 +7,7 @@ class Api::ArticlesController < ActionController::API
 
     articles = articles.map do |data|
       base = data.attributes
-      tags = data.article_tags.map do |tag|
-        tag[:tag]
-      end
-
-      base.store("tags", tags)
+      base.store("tags", data.article_tags.map { |tag| tag[:tag] })
 
       base["url"] = data.article_markdown.url if data.article_markdown
       base["url"] = data.article_qiita.url if data.article_qiita

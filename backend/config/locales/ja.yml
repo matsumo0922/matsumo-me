@@ -1,7 +1,0 @@
-ja:
-  time:
-    formats:
-      default: ! '%Y/%m/%d'
-      long: ! '%Y年%m月%d日 %H:%M'
-      short: ! '%m/%d'
-    abbr_day_names: [日, 月, 火, 水, 木, 金, 土]

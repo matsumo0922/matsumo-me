@@ -14,7 +14,7 @@ export const articleStyles = {
     articleHeader: style([
         vStack,
         {
-            gap: resources.spacing[8],
+            gap: resources.spacing[4],
         },
     ]),
 
@@ -41,7 +41,7 @@ export const articleStyles = {
         },
     ]),
 
-    datetime: style({
+    dateTime: style({
         fontSize: resources.fontSizes.sm,
         color: resources.colors.text.secondary,
     }),

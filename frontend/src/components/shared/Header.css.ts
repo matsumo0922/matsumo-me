@@ -17,8 +17,8 @@ export const headerStyles = {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            paddingTop: resources.spacing[2],
-            paddingBottom: resources.spacing[2],
+            paddingTop: resources.spacing[4],
+            paddingBottom: resources.spacing[4],
         },
     ]),
 

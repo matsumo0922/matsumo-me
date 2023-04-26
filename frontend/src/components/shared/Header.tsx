@@ -1,13 +1,22 @@
 import {FC} from "react";
 import {headerStyles} from "@/components/shared/Header.css";
 import NextLink from "next/link";
-import {config} from "@/config";
+import Image from "next/image";
+import logo from "./logo_sample.png";
 
 export const Header: FC = () => {
     return (
         <div className={headerStyles.root}>
             <header className={headerStyles.header}>
-                <h1>matsumo.me</h1>
+                <NextLink href="/" className={headerStyles.logoLink}>
+                    <Image
+                        className={headerStyles.logoLinkImage}
+                        src={logo}
+                        alt="matsumo's blog"
+                        title="matsumo's blog"
+                        priority
+                    />
+                </NextLink>
                 <nav className={headerStyles.navigations}>
                     <NavLinks />
                 </nav>

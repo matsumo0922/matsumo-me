@@ -2,7 +2,6 @@ import {FC} from "react";
 import {MarkdownArticleHeader} from "@/models";
 import {Header} from "@/components/shared/Header";
 import {Footer} from "@/components/shared/Footer";
-import {articleCardStyles} from "@/components/shared/ArticleCard.css";
 import {articleStyles} from "@/components/pages/Article.css";
 import {DateTime} from "@/components/shared/DateTime";
 import {TagLink} from "@/components/shared/TagLink";
@@ -20,8 +19,8 @@ export const Article: FC<Props> = ({ article }) => {
                 <div className={articleStyles.articleHeader}>
                     <PageTitle>{article.title}</PageTitle>
 
-                    <div className={articleStyles.datetimes}>
-                        <p className={articleStyles.datetime}>
+                    <div className={articleStyles.dateTimes}>
+                        <p className={articleStyles.dateTime}>
                             公開:{" "}
                             <DateTime
                                 format="yyyy年MM月dd日 HH時mm分"
@@ -31,7 +30,7 @@ export const Article: FC<Props> = ({ article }) => {
                     </div>
 
                     <ul className={articleStyles.tags}>
-                        {article.header.tags.map(tag => (
+                        {article.tags.map(tag => (
                             <li key={tag}>
                                 <TagLink tag={tag} />
                             </li>

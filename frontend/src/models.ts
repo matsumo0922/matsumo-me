@@ -11,7 +11,7 @@ export type AllArticleHeader = ArticleHeaderBase & {
     tags: string[];
 }
 
-export type BlogArticleHeader = ArticleHeaderBase & {
+export type MarkdownArticleHeader = ArticleHeaderBase & {
     resource: "markdown";
     tags: string[];
 }
@@ -30,4 +30,4 @@ export type ZennArticleHeader = ArticleHeaderBase & {
     url: string,
 }
 
-export type ArticleHeader = BlogArticleHeader | QiitaArticleHeader | ZennArticleHeader;
+export type ArticleHeader = MarkdownArticleHeader | QiitaArticleHeader | ZennArticleHeader;

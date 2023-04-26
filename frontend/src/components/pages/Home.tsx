@@ -3,7 +3,7 @@ import {Footer} from "@/components/shared/Footer";
 import {Header} from "@/components/shared/Header";
 import {AllArticleHeader} from "@/models";
 import {ArticleList} from "@/components/shared/ArticleList";
-import {homeStyles} from "@/components/shared/Home.css";
+import {homeStyles} from "@/components/pages/Home.css";
 import {SideBar} from "@/components/shared/SideBar";
 
 type Props = {

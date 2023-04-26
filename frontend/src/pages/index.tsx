@@ -1,4 +1,4 @@
-import {Home} from "@/components/shared/Home";
+import {Home} from "@/components/pages/Home";
 import {AllArticleHeader} from "@/models";
 import {NextPage} from "next";
 import {getAllArticles} from "@/lib/posts";

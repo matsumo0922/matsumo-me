@@ -1,12 +1,13 @@
-import {ArticleHeader, BlogArticleHeader} from "@/models";
+import {ArticleHeader, MarkdownArticleHeader} from "@/models";
 import {GetStaticProps} from "next";
 import {getAllArticles, getMarkdownArticle} from "@/lib/posts";
+import {Article} from "@/components/pages/Article";
 
-type Props = { article: BlogArticleHeader };
+type Props = { article: MarkdownArticleHeader };
 
 export default function Post({ article }: Props) {
     return (
-        <h1>{article.title}</h1>
+        <Article article={article} />
     )
 }
 

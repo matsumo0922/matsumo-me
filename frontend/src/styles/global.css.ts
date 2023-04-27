@@ -17,3 +17,8 @@ globalStyle("img", {
   maxWidth: "100%",
   height: "auto",
 });
+
+globalStyle("*", {
+  margin: "0",
+  padding: "0",
+});

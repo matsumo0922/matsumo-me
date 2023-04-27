@@ -6,6 +6,7 @@ import {articleStyles} from "@/components/pages/Article.css";
 import {DateTime} from "@/components/shared/DateTime";
 import {TagLink} from "@/components/shared/TagLink";
 import {PageTitle} from "@/components/shared/PageTitle";
+import {MarkdownRenderer} from "@/components/shared/Markdown";
 
 type Props = {
     article: MarkdownArticleHeader;
@@ -29,14 +30,20 @@ export const Article: FC<Props> = ({ article }) => {
                         </p>
                     </div>
 
-                    <ul className={articleStyles.tags}>
+                    <div className={articleStyles.tags}>
                         {article.tags.map(tag => (
-                            <li key={tag}>
+                            <div key={tag}>
                                 <TagLink tag={tag} />
-                            </li>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 </div>
+
+                <hr className={articleStyles.contentDivider} />
+
+                <section className={articleStyles.articleContent}>
+                    <MarkdownRenderer>{article.body}</MarkdownRenderer>
+                </section>
             </main>
             <Footer />
         </div>

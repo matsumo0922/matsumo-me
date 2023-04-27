@@ -13,6 +13,7 @@ export type AllArticleHeader = ArticleHeaderBase & {
 
 export type MarkdownArticleHeader = ArticleHeaderBase & {
     resource: "markdown";
+    body: string,
     tags: string[];
 }
 

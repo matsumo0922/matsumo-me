@@ -27,6 +27,7 @@
     "postcss": "8.4.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.7",
     "typescript": "5.0.4"
   },
   "devDependencies": {
@@ -45,6 +46,9 @@
     "@vanilla-extract/next-plugin": "^2.1.2",
     "@vanilla-extract/webpack-plugin": "^2.2.0",
     "framer-motion": "^10.12.2",
-    "react-use": "^17.4.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "react-use": "^17.4.0",
+    "remark-gfm": "^3.0.1",
+    "remark-slug": "^7.0.1"
   }
 }

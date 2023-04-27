@@ -35,7 +35,12 @@ namespace :blog do
 
     items = JSON.parse(res.body)
     items.each do |item|
-      next if ArticleQiita.find_by(url: item["url"])
+      article = ArticleQiita.find_by(url: item["url"])
+
+      unless article.nil?
+        Article.find_by(id: article.article_id)&.destroy!
+        article.destroy!
+      end
 
       Article.create_with_qiita(
         title: item["title"],
@@ -58,7 +63,12 @@ namespace :blog do
 
     items = JSON.parse(res.body)["items"]
     items.each do |item|
-      next if ArticleZenn.find_by(url: item["link"])
+      article = ArticleZenn.find_by(url: item["link"])
+
+      unless article.nil?
+        Article.find_by(id: article.article_id)&.destroy!
+        article.destroy!
+      end
 
       Article.create_with_zenn(
         title: item["title"],
@@ -74,8 +84,12 @@ namespace :blog do
   def fetch_markdown
     Dir.glob("articles/*.md").each do |path|
       front_matter = FrontMatterParser::Parser.parse_file(path)
+      article = ArticleMarkdown.find_by(title: front_matter.front_matter["title"])
 
-      next if ArticleMarkdown.find_by(title: front_matter.front_matter["title"])
+      unless article.nil?
+        Article.find_by(id: article.article_id)&.destroy!
+        article.destroy!
+      end
 
       Article.create_with_markdown(
         title: front_matter.front_matter["title"],

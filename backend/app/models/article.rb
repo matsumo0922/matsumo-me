@@ -1,97 +1,79 @@
 class Article < ApplicationRecord
-  has_one :article_markdown
-  has_one :article_qiita
-  has_one :article_zenn
-  has_many :article_tags
+  has_one :article_markdown, dependent: :destroy
+  has_one :article_qiita, dependent: :destroy
+  has_one :article_zenn, dependent: :destroy
+  has_many :article_tags, dependent: :destroy
 
-  def self.create_with_qiita(
-    title:,
-    body:,
-    url:,
-    likes_count:,
-    stocks_count:,
-    comments_count:,
-    published_at:,
-    tags:
-  )
+  def self.create_with_qiita(attributes, tags)
     article = new
-
-    article.assign_attributes(
-      title: title,
-      resource: "qiita",
-      published_at: published_at,
-    )
-
-    article.build_article_qiita(
-      title: title,
-      body: body,
-      url: url,
-      likes_count: likes_count,
-      stocks_count: stocks_count,
-      comments_count: comments_count,
-      published_at: published_at,
-    )
-
-    tags.each do |tag|
-      article.article_tags.build(tag: tag)
-    end
-
-    article.save!
-    article
+    article.update_with_qiita(attributes, tags)
   end
 
-  def self.create_with_zenn(
-    title:,
-    description:,
-    url:,
-    published_at:
-  )
+  def self.create_with_zenn(attributes)
     article = new
-
-    article.assign_attributes(
-      title: title,
-      resource: "zenn",
-      published_at: published_at,
-    )
-
-    article.build_article_zenn(
-      title: title,
-      description: description,
-      url: url,
-      published_at: published_at,
-    )
-
-    article.save!
-    article
+    article.update_with_zenn(attributes)
   end
 
-  def self.create_with_markdown(
-    title:,
-    body:,
-    url:,
-    published_at:,
-    tags:
-  )
+  def self.create_with_markdown(attributes, tags)
     article = new
+    article.update_with_markdown(attributes, tags)
+  end
 
-    article.assign_attributes(
-      title: title,
-      resource: "markdown",
-      published_at: published_at,
-    )
-
-    article.build_article_markdown(
-      title: title,
-      body: body,
-      url: url,
-      published_at: published_at,
-    )
-
-    tags.each do |tag|
-      article.article_tags.build(tag: tag)
+  def update_with_qiita(attributes, tags)
+    self_attributes = attributes.slice("title").tap do |hash|
+      hash["resource"] = "qiita"
+      hash["published_at"] = Time.zone.parse(attributes["created_at"])
     end
 
-    article.save!
-    article
+    qiita_attributes = attributes.slice("title", "body", "url", "likes_count", "stocks_count", "comments_count").tap do |hash|
+      hash["published_at"] = Time.zone.parse(attributes["created_at"])
+    end
+
+    assign_attributes(self_attributes)
+    build_article_qiita(qiita_attributes)
+
+    tags.each do |tag|
+      article_tags.build(tag: tag)
+    end
+
+    save!
+  end
+
+  def update_with_zenn(attributes)
+    self_attributes = attributes.slice("title").tap do |hash|
+      hash["resource"] = "zenn"
+      hash["published_at"] = Time.zone.parse(attributes["pubDate"])
+    end
+
+    zenn_attributes = attributes.slice("title").tap do |hash|
+      hash["description"] = attributes["content"]
+      hash["url"] = attributes["link"]
+      hash["published_at"] = Time.zone.parse(attributes["pubDate"])
+    end
+
+    assign_attributes(self_attributes)
+    build_article_zenn(zenn_attributes)
+
+    save!
+  end
+
+  def update_with_markdown(attributes, tags)
+    self_attributes = attributes.slice(:title).tap do |hash|
+      hash["resource"] = "markdown"
+      hash["published_at"] = Time.zone.parse(attributes[:published_at])
+    end
+
+    markdown_attributes = attributes.slice(:title, :body, :url).tap do |hash|
+      hash["published_at"] = Time.zone.parse(attributes[:published_at])
+    end
+
+    assign_attributes(self_attributes)
+    build_article_markdown(markdown_attributes)
+
+    tags.each do |tag|
+      article_tags.build(tag: tag)
+    end
+
+    save!
   end
 end

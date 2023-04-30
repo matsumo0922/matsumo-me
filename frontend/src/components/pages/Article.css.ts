@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { appContainer, center, vStack, wrapItems } from "@/styles/system.css";
 import {resources} from "@/styles/resources.css";
+import {DARK_MODE_SELECTOR} from "@/styles/darkModeSelector";
 
 export const articleStyles = {
     container: style([
@@ -32,6 +33,12 @@ export const articleStyles = {
         width: "100%",
         marginTop: resources.spacing[8],
         marginBottom: resources.spacing[8],
+
+        selectors: {
+            [`${DARK_MODE_SELECTOR} &`]: {
+                borderBottomColor: resources.colors.whiteAlpha[300],
+            },
+        },
     }),
 
     dateTimes: style([

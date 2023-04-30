@@ -1,5 +1,6 @@
 import {style} from "@vanilla-extract/css";
 import {resources} from "@/styles/resources.css";
+import {DARK_MODE_SELECTOR} from "@/styles/darkModeSelector";
 
 export const articleCardStyles = {
     card: style({
@@ -10,11 +11,20 @@ export const articleCardStyles = {
         borderRadius: resources.radius.md,
         boxShadow: resources.shadows.md,
         padding: `${resources.spacing[4]} ${resources.spacing[6]}`,
-        transition: "box-shadow 0.2s",
+        transition: "background-color 0.2s, box-shadow 0.2s",
 
         ":hover": {
             boxShadow: resources.shadows.lg,
-        }
+        },
+
+        selectors: {
+            [`${DARK_MODE_SELECTOR} &`]: {
+                backgroundColor: resources.colors.gray[700],
+            },
+            [`${DARK_MODE_SELECTOR} &:hover`]: {
+                backgroundColor: resources.colors.gray[600],
+            },
+        },
     }),
 
     publishedAt: style({

@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { resources } from "@/styles/resources.css";
+import {DARK_MODE_SELECTOR} from "@/styles/darkModeSelector";
 
 export const tagLinkStyle = style({
   borderRadius: resources.radius.md,
@@ -22,5 +23,12 @@ export const tagLinkStyle = style({
 
   ":hover": {
     textDecoration: "underline",
+  },
+
+  selectors: {
+    [`${DARK_MODE_SELECTOR} &`]: {
+      backgroundColor: resources.colors.primary[700],
+      color: resources.colors.primary[200],
+    },
   },
 });

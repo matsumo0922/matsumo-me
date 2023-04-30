@@ -7,6 +7,7 @@ import night_logo from "./blog_logo_night.png";
 import {useColorMode, useColorModeValue} from "@/lib/colorMode";
 import {IconButton} from "@/components/shared/IconButton";
 import {MdDarkMode, MdLightMode} from "react-icons/md";
+import {config} from "@/config";
 
 export const Header: FC = () => {
     const { toggleColorMode } = useColorMode();
@@ -27,7 +28,7 @@ export const Header: FC = () => {
                     <IconButton
                         aria-label="toggle theme"
                         variant="ghost"
-                        icon={useColorModeValue(<MdLightMode />, <MdDarkMode />)}
+                        icon={useColorModeValue(<MdLightMode color={"#000"} />, <MdDarkMode color={"#FFF"} />)}
                         onClick={toggleColorMode}
                     />
                     <NavLinks />
@@ -40,15 +41,14 @@ export const Header: FC = () => {
 const NavLinks: FC = () => {
     return (
         <>
-            <a href="https://twitter.com/matsumo0922" className={headerStyles.navigationLink}>
+            <NextLink href="/" className={headerStyles.navigationLink}>
                 Articles
-            </a>
-
+            </NextLink>
             <a href="https://twitter.com/matsumo0922" className={headerStyles.navigationLink}>
                 About
             </a>
             <a
-                href="https://twitter.com/matsumo0922"
+                href={config.repository}
                 target="_blank"
                 rel="noreferrer"
                 className={headerStyles.navigationLink}>

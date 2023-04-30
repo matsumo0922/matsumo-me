@@ -32,13 +32,15 @@ export const headerStyles = {
 
     logoLinkImage: style({
         width: "auto",
-        height: resources.sizes[12],
+        height: resources.sizes[8],
+        paddingTop: resources.spacing[2],
+        paddingBottom: resources.spacing[2],
         "@media": {
             [mediaQueries.largerThan("sm")]: {
-                height: resources.sizes[14],
+                height: resources.sizes[10],
             },
             [mediaQueries.largerThan("md")]: {
-                height: resources.sizes[16],
+                height: resources.sizes[12],
             },
         },
     }),
@@ -51,7 +53,6 @@ export const headerStyles = {
 
     navigationLink: style({
         display: "none",
-        color: "black",
         fontWeight: "bold",
         textDecoration: "none",
         boxShadow: resources.focusRingShadow.before,

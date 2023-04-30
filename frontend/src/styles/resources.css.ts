@@ -1,4 +1,5 @@
-import {createGlobalTheme} from "@vanilla-extract/css";
+import {createGlobalTheme, globalStyle} from "@vanilla-extract/css";
+import {DARK_MODE_SELECTOR} from "@/styles/darkModeSelector";
 
 const quadruplePx = (base: number) => `${base * 4}px` as const;
 
@@ -183,4 +184,29 @@ export const resources = createGlobalTheme(":root", {
         heading: `-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
         mono: `SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace`,
     },
+});
+
+createGlobalTheme(":root", resources.colors.text, {
+    primary: "#474B4B",
+    secondary: resources.colors.blackAlpha[600],
+    link: "#3182ce",
+    linkVisited: "#805AD5",
+});
+
+createGlobalTheme(DARK_MODE_SELECTOR, resources.colors.text, {
+    primary: "#E8EAEA",
+    secondary: resources.colors.whiteAlpha[700],
+    link: "#4299e1",
+    linkVisited: "#B794F4",
+});
+
+globalStyle(DARK_MODE_SELECTOR, {
+    vars: {
+        [resources.colors.background]: "#1C1C1C",
+    },
+});
+
+createGlobalTheme(":root", resources.focusRingShadow, {
+    before: `0 0 0 0 transparent`,
+    after: `0 0 0 3px ${resources.colors.primary[300]}`,
 });

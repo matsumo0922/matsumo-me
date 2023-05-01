@@ -29,6 +29,7 @@ class Article < ApplicationRecord
       hash["published_at"] = Time.zone.parse(attributes["created_at"])
     end
 
+    article_tags.delete_all
     assign_attributes(self_attributes)
     build_article_qiita(qiita_attributes)
 
@@ -67,6 +68,7 @@ class Article < ApplicationRecord
       hash["published_at"] = Time.zone.parse(attributes[:published_at])
     end
 
+    article_tags.delete_all
     assign_attributes(self_attributes)
     build_article_markdown(markdown_attributes)
 

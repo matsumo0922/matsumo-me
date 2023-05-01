@@ -11,10 +11,10 @@ export default function Post({ article }: Props) {
     )
 }
 
-export const getStaticProps: GetStaticProps<Props, { articleId: number }> = async ({ params}) => {
+export const getStaticProps: GetStaticProps<Props, { articleId: string }> = async ({ params}) => {
     if (!params) throw new Error("Component file name must has params.");
 
-    const article = await getMarkdownArticle(params.articleId);
+    const article = await getMarkdownArticle(Number(params.articleId));
 
     return {
         props: { article },
@@ -28,6 +28,6 @@ export const getStaticPaths = async () => {
         fallback: false,
         paths: articles
             .filter(article => article.resource === "markdown")
-            .map(article => ({ params: { articleId: article.id.toString() } })),
+            .map(article => `/articles/${article.id.toString()}`),
     }
 }

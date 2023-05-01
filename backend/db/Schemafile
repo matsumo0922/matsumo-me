@@ -47,3 +47,9 @@ create_table "article_zenns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", 
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 end
+
+create_table "article_browse", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+end

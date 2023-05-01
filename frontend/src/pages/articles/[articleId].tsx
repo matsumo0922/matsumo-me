@@ -1,7 +1,8 @@
 import {ArticleHeader, MarkdownArticleHeader} from "@/models";
 import {GetStaticProps} from "next";
-import {getAllArticles, getMarkdownArticle} from "@/lib/posts";
+import {getAllArticles, getMarkdownArticle, postBrowseHistory} from "@/lib/posts";
 import {Article} from "@/components/pages/Article";
+import {useEffect} from "react";
 
 type Props = { article: MarkdownArticleHeader };
 

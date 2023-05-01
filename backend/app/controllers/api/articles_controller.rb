@@ -22,4 +22,15 @@ class Api::ArticlesController < ActionController::API
     render json: articles
   end
 
+  def browse
+    if Article.exists?(id: params[:article_id])
+      if ArticleBrowseHistory.create(article_id: params[:article_id])
+        render status: 204
+      else
+        render status: 500
+      end
+    else
+      render status: 422
+    end
+  end
 end

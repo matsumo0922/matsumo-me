@@ -37,6 +37,7 @@
     "@emotion/styled": "^11",
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.3.0",
+    "@svgr/webpack": "^7.0.0",
     "@types/lodash.camelcase": "^4.3.7",
     "@types/lodash.isarray": "^4.0.7",
     "@types/lodash.isobject": "^3.0.7",

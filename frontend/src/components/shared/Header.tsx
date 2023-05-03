@@ -1,9 +1,8 @@
 import {FC} from "react";
 import {headerStyles} from "@/components/shared/Header.css";
 import NextLink from "next/link";
-import Image from "next/image";
-import day_logo from "./blog_logo_day.png";
-import night_logo from "./blog_logo_night.png";
+import LogoDay from "./logo_day.svg";
+import LogoNight from "./logo_night.svg";
 import {useColorMode, useColorModeValue} from "@/lib/colorMode";
 import {IconButton} from "@/components/shared/IconButton";
 import {MdDarkMode, MdLightMode} from "react-icons/md";
@@ -16,13 +15,7 @@ export const Header: FC = () => {
         <div className={headerStyles.root}>
             <header className={headerStyles.header}>
                 <NextLink href="/" className={headerStyles.logoLink}>
-                    <Image
-                        className={headerStyles.logoLinkImage}
-                        src={useColorModeValue(day_logo, night_logo)}
-                        alt="matsumo's blog"
-                        title="matsumo's blog"
-                        priority
-                    />
+                    {useColorModeValue((<LogoDay className={headerStyles.logoLinkImage}/>), (<LogoNight className={headerStyles.logoLinkImage}/>))}
                 </NextLink>
                 <nav className={headerStyles.navigations}>
                     <IconButton

@@ -1,7 +1,7 @@
 class Api::ArticlesController < ActionController::API
 
   def index
-    articles = Article.all
+    articles = Article.all.includes(:article_tags, :article_markdown, :article_qiita, :article_zenn)
 
     articles = articles.sort_by { |data| data.published_at }.reverse
 

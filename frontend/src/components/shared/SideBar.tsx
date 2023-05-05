@@ -1,12 +1,12 @@
 import {FC} from "react";
 import {sideBarStyle} from "@/components/shared/SideBar.css";
-import {SideAboutMe} from "@/components/shared/SideAboutMe";
 import {SideNewArticles} from "@/components/shared/SideNewArticles";
+import {AboutMe} from "@/components/shared/AboutMe";
 
 export const SideBar: FC = () => {
     return (
         <div className={sideBarStyle}>
-            <SideAboutMe />
+            <AboutMe />
             <SideNewArticles />
         </div>
     )

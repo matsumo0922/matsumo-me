@@ -1,8 +1,8 @@
 import {FC} from "react";
 import {headerStyles} from "@/components/shared/Header.css";
 import NextLink from "next/link";
-import LogoDay from "./logo_day.svg";
-import LogoNight from "./logo_night.svg";
+import LogoDay from "../resource/logo_day.svg";
+import LogoNight from "../resource/logo_night.svg";
 import {useColorMode, useColorModeValue} from "@/lib/colorMode";
 import {IconButton} from "@/components/shared/IconButton";
 import {MdDarkMode, MdLightMode} from "react-icons/md";

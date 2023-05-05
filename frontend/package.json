@@ -30,14 +30,16 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-markdown": "^8.0.7",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.81.0"
   },
   "devDependencies": {
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.3.0",
-    "@svgr/webpack": "^7.0.0",
+    "@svgr/webpack": "^6.5.1",
     "@types/lodash.camelcase": "^4.3.7",
     "@types/lodash.isarray": "^4.0.7",
     "@types/lodash.isobject": "^3.0.7",
@@ -49,6 +51,7 @@
     "@vanilla-extract/css": "^1.11.0",
     "@vanilla-extract/next-plugin": "^2.1.2",
     "@vanilla-extract/webpack-plugin": "^2.2.0",
+    "file-loader": "^6.2.0",
     "framer-motion": "^10.12.2",
     "react-syntax-highlighter": "^15.5.0",
     "react-use": "^17.4.0",

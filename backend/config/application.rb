@@ -16,6 +16,16 @@ module Backend
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
 
+    # Permit cross origin
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins "*"
+        resource "*",
+                 headers: :any,
+                 methods: [:get, :post, :options, :head]
+      end
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

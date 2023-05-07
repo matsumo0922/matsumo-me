@@ -1,5 +1,18 @@
+loadEnv(process.env.APP_ENV);
+
 const {createVanillaExtractPlugin} = require("@vanilla-extract/next-plugin");
 const withVanillaExtract = createVanillaExtractPlugin();
+
+function loadEnv(appEnv = "local") {
+    const env = {
+        ...require(`./env/env.${appEnv}.ts`),
+        NEXT_PUBLIC_APP_ENV: appEnv,
+    }
+
+    Object.entries(env).forEach(([key, value]) => {
+        process.env[key] = value;
+    });
+}
 
 const withMDX = require("@next/mdx")({
     extension: /\.mdx?$/,

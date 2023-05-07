@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect=0.0.0.0:9229' next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "APP_ENV=local next dev",
+    "build": "APP_ENV=prod next build",
+    "start": "APP_ENV=prod next start",
     "lint": "next lint"
   },
   "dependencies": {

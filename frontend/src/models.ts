@@ -1,5 +1,6 @@
 type ArticleHeaderBase = {
     id: number;
+    articleId: number;
     title: string;
     publishedAt: string;
     updatedAt: string;

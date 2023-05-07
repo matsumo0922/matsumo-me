@@ -3,10 +3,20 @@ import {GetStaticProps} from "next";
 import {getAllArticles, getMarkdownArticle, postBrowseHistory} from "@/lib/posts";
 import {Article} from "@/components/pages/Article";
 import {useEffect} from "react";
+import {applyCaseAxios} from "@/lib/applyCaseAxios";
 
 type Props = { article: MarkdownArticleHeader };
 
 export default function Post({ article }: Props) {
+    let accessFlag = false;
+
+    useEffect(() => {
+        if(!accessFlag) {
+            accessFlag = true
+            postBrowseHistory(article.articleId)
+        }
+    }, []);
+
     return (
         <Article article={article} />
     )

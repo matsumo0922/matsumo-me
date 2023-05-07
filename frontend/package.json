@@ -32,14 +32,14 @@
     "react-markdown": "^8.0.7",
     "typescript": "5.0.4",
     "url-loader": "^4.1.1",
-    "webpack": "^5.81.0"
+    "webpack": "^5.82.0"
   },
   "devDependencies": {
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.3.0",
-    "@svgr/webpack": "^6.5.1",
+    "@svgr/webpack": "^7.0.0",
     "@types/lodash.camelcase": "^4.3.7",
     "@types/lodash.isarray": "^4.0.7",
     "@types/lodash.isobject": "^3.0.7",

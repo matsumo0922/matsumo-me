@@ -17,5 +17,3 @@ RUN bundle install
 COPY . $APP/
 
 RUN rm -f tmp/pids/server.pid
-
-CMD ["bundle", "exec", "rails", "server", "-p", "8080", "-b", "0.0.0.0"]

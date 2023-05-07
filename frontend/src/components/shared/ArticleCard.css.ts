@@ -7,7 +7,7 @@ export const articleCardStyles = {
         display: "flex",
         flexDirection: "column",
         position: "relative",
-        backgroundColor: resources.colors.gray[100],
+        backgroundColor: resources.colors.gray[50],
         borderRadius: resources.radius.md,
         boxShadow: resources.shadows.md,
         padding: `${resources.spacing[4]} ${resources.spacing[6]}`,

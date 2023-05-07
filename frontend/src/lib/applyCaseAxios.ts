@@ -22,7 +22,6 @@ const mapKeysCamelCase = data =>
 
 export const applyCaseAxios = axios.create();
 
-// 一番重要なところ！
 applyCaseAxios.interceptors.response.use(
     response => {
         const { data } = response;

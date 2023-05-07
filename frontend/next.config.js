@@ -1,6 +1,9 @@
 loadEnv(process.env.APP_ENV);
 
 const {createVanillaExtractPlugin} = require("@vanilla-extract/next-plugin");
+const {VanillaExtractPlugin} = require('@vanilla-extract/webpack-plugin');
+const {merge} = require("webpack-merge")
+
 const withVanillaExtract = createVanillaExtractPlugin();
 
 function loadEnv(appEnv = "local") {
@@ -19,22 +22,27 @@ const withMDX = require("@next/mdx")({
 });
 
 const webpack = (config, options) => {
-    config.module.rules.push(
-        {
-            test: /\.svg$/i,
-            issuer: /\.[jt]sx?$/,
-            use: [
+    return merge(config, {
+        module: {
+            rules: [
                 {
-                    loader: "@svgr/webpack",
-                    options: {
-                        svgo: false,
-                    },
+                    test: /\.svg$/i,
+                    issuer: /\.[jt]sx?$/,
+                    use: [
+                        {
+                            loader: "@svgr/webpack",
+                            options: {
+                                svgo: false,
+                            },
+                        },
+                    ],
                 },
             ],
         },
-    );
-
-    return config;
+        plugins: [
+            new VanillaExtractPlugin(),
+        ]
+    })
 }
 
 /** @type {import('next').NextConfig} */
@@ -56,4 +64,4 @@ const nextConfig = {
     webpack,
 };
 
-module.exports = withVanillaExtract(withMDX(nextConfig));
+module.exports = withVanillaExtract(withMDX(nextConfig))

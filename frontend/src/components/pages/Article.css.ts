@@ -31,8 +31,7 @@ export const articleStyles = {
         borderBottom: resources.borders[1],
         borderBottomColor: resources.colors.gray[200],
         width: "100%",
-        marginTop: resources.spacing[8],
-        marginBottom: resources.spacing[8],
+        margin: resources.spacing[1],
 
         selectors: {
             [`${DARK_MODE_SELECTOR} &`]: {

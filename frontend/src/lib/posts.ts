@@ -13,6 +13,5 @@ export async function getMarkdownArticle(articleId: number): Promise<MarkdownArt
 }
 
 export function postBrowseHistory(articleId: number) {
-    console.log(process.env.NEXT_PUBLIC_API_ENDPOINT)
     applyCaseAxios.post(`${process.env.NEXT_PUBLIC_API_CROS_ENDPOINT}/articles/browse?article_id=${articleId}`)
 }

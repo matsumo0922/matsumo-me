@@ -2,16 +2,12 @@ import {style} from "@vanilla-extract/css";
 import {resources} from "@/styles/resources.css";
 import {DARK_MODE_SELECTOR} from "@/styles/darkModeSelector";
 
-import developerIcon from "../resource/matsumo_icon.jpg";
-import twitterIcon from "../resource/twitter.svg";
-import githubIcon from "../resource/github.svg";
-import googlePlayIcon from "../resource/google_play.svg";
+import developerIcon from "@/components/resource/matsumo_icon.jpg";
 
 export const aboutMeStyles = {
     content: style({
         display: "flex",
         flexFlow: "column",
-        flexBasis: "30%",
         alignItems: "center",
         gap: resources.spacing[2],
         width: "100%",
@@ -21,13 +17,8 @@ export const aboutMeStyles = {
         borderRadius: resources.radius.md,
         boxShadow: resources.shadows.md,
 
-        selectors: {
-            [`${DARK_MODE_SELECTOR} &`]: {
-                backgroundColor: resources.colors.gray[700],
-            },
-            [`${DARK_MODE_SELECTOR} &:hover`]: {
-                backgroundColor: resources.colors.gray[600],
-            },
+        [`${DARK_MODE_SELECTOR} &`]: {
+            backgroundColor: resources.colors.gray[700],
         },
     }),
 
@@ -58,23 +49,54 @@ export const aboutMeStyles = {
         textAlign: "center",
     }),
 
+    developerAboutContent: style({
+        marginTop: resources.spacing[2],
+        marginBottom: resources.spacing[3],
+        marginLeft: resources.spacing[3],
+        marginRight: resources.spacing[3],
+    }),
+
+    developerAbout: style({
+        margin: resources.spacing[1],
+        color: resources.colors.text.primary,
+        fontSize: "0.8rem",
+    }),
+
     contactContent: style({
         display: "flex",
         flexFlow: "row",
         alignItems: "center",
         justifyContent: "center",
+        marginTop: resources.spacing[2],
+        marginBottom: resources.spacing[2],
         gap: resources.spacing[2],
     }),
 
-    contactTwitter: style({
-        width: resources.sizes[8],
-        aspectRatio: "1",
+    contactIconContent: style({
+        display: "flex",
+        width: resources.sizes[5],
+        height: resources.sizes[5],
+        alignItems: "center",
+        justifyContent: "center",
         borderRadius: "50%",
+        border: `1px ${resources.colors.text.secondary} solid`,
+        transition: "background-color 0.2s",
+
+        ":hover": {
+            backgroundColor: resources.colors.gray[100],
+        },
+
+        selectors: {
+            [`${DARK_MODE_SELECTOR} &:hover`]: {
+                backgroundColor: resources.colors.gray[600],
+            },
+        },
+    }),
+
+    contactIcon: style({
+        width: resources.sizes[3],
+        height: resources.sizes[3],
         fill: resources.colors.text.secondary,
-        backgroundSize: resources.sizes[8],
-        backgroundImage: `url(${twitterIcon.src})`,
-        backgroundPosition: "center",
-        border: resources.borders[2],
     }),
 
     contentDivider: style({
@@ -82,11 +104,7 @@ export const aboutMeStyles = {
         border: 0,
         borderBottom: resources.borders[1],
         borderBottomColor: resources.colors.gray[200],
-        width: "100%",
-        marginTop: resources.spacing[2],
-        marginBottom: resources.spacing[2],
-        marginRight: resources.spacing[1],
-        marginLeft: resources.spacing[1],
+        width: "90%",
 
         selectors: {
             [`${DARK_MODE_SELECTOR} &`]: {
@@ -94,4 +112,6 @@ export const aboutMeStyles = {
             },
         },
     }),
+
+
 }

@@ -3,6 +3,7 @@ import {appContainer, center} from "@/styles/system.css";
 import {resources} from "@/styles/resources.css";
 
 export const sideBarStyle = style({
+   maxWidth: resources.sideBarMaxWidth,
    display: "flex",
    flexFlow: "column",
    flexBasis: "30%",

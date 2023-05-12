@@ -20,7 +20,6 @@ export const Header: FC = () => {
                 <nav className={headerStyles.navigations}>
                     <IconButton
                         aria-label="toggle theme"
-                        variant="ghost"
                         icon={useColorModeValue(<MdLightMode color={"#000"} />, <MdDarkMode color={"#FFF"} />)}
                         onClick={toggleColorMode}
                     />

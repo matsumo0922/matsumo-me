@@ -173,6 +173,7 @@ export const resources = createGlobalTheme(":root", {
         text: {
             primary: "",
             secondary: "",
+            tertiary: "",
             link: "",
             linkVisited: "",
         },
@@ -189,6 +190,7 @@ export const resources = createGlobalTheme(":root", {
 createGlobalTheme(":root", resources.colors.text, {
     primary: "#474B4B",
     secondary: resources.colors.blackAlpha[600],
+    tertiary: resources.colors.blackAlpha[100],
     link: "#3182ce",
     linkVisited: "#805AD5",
 });
@@ -196,6 +198,7 @@ createGlobalTheme(":root", resources.colors.text, {
 createGlobalTheme(DARK_MODE_SELECTOR, resources.colors.text, {
     primary: "#E8EAEA",
     secondary: resources.colors.whiteAlpha[700],
+    tertiary: resources.colors.whiteAlpha[200],
     link: "#4299e1",
     linkVisited: "#B794F4",
 });

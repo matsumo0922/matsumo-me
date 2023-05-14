@@ -20,17 +20,18 @@ export const AboutMe: FC = () => {
             </p>
 
             <div className={aboutMeStyles.contactContent}>
-                <div className={aboutMeStyles.contactIconContent}>
-                    <TwitterIcon className={aboutMeStyles.contactIcon}/>
-                </div>
+                <a
+                    className={aboutMeStyles.contactIconContent} href={"https://twitter.com/matsumo0922"} target="_blank" rel="nofollow">
+                    <TwitterIcon className={aboutMeStyles.contactIcon} />
+                </a>
 
-                <div className={aboutMeStyles.contactIconContent}>
+                <a className={aboutMeStyles.contactIconContent} href={"https://github.com/matsumo0922"} target="_blank" rel="nofollow">
                     <GithubIcon className={aboutMeStyles.contactIcon}/>
-                </div>
+                </a>
 
-                <div className={aboutMeStyles.contactIconContent}>
+                <a className={aboutMeStyles.contactIconContent} href={"https://play.google.com/store/apps/developer?id=CAIOS&hl=ja"} target="_blank" rel="nofollow">
                     <PlayIcon className={aboutMeStyles.contactIcon}/>
-                </div>
+                </a>
             </div>
 
             <hr className={aboutMeStyles.contentDivider}/>

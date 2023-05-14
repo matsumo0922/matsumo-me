@@ -59,7 +59,7 @@ export const aboutMeStyles = {
     developerAbout: style({
         margin: resources.spacing[1],
         color: resources.colors.text.primary,
-        fontSize: "0.8rem",
+        fontSize: "0.9rem",
     }),
 
     contactContent: style({
@@ -74,8 +74,8 @@ export const aboutMeStyles = {
 
     contactIconContent: style({
         display: "flex",
-        width: resources.sizes[5],
-        height: resources.sizes[5],
+        width: resources.sizes[6],
+        height: resources.sizes[6],
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "50%",
@@ -99,6 +99,11 @@ export const aboutMeStyles = {
         fill: resources.colors.text.secondary,
     }),
 
+    contactLink: style({
+       width: "100%",
+       height: "100%",
+    }),
+
     contentDivider: style({
         opacity: 0.6,
         border: 0,
@@ -112,6 +117,4 @@ export const aboutMeStyles = {
             },
         },
     }),
-
-
 }

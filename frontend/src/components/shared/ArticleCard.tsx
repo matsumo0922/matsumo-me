@@ -13,70 +13,72 @@ type Props = { article: AllArticleHeader };
 
 export const ArticleCard: FC<Props> = ({article}) => {
     return (
-        <article className={articleCardStyles.card}>
-            <DateTime
-                className={articleCardStyles.publishedAt}
-                datetime={article.publishedAt}
-                format="yyyy年MM月dd日 HH時mm分"
-            />
+        <div className={articleCardStyles.content}>
+            <article className={articleCardStyles.card}>
+                <DateTime
+                    className={articleCardStyles.publishedAt}
+                    datetime={article.publishedAt}
+                    format="yyyy年MM月dd日 HH時mm分"
+                />
 
-            <h3 className={articleCardStyles.title}>
-                {article.title}
-            </h3>
+                <h3 className={articleCardStyles.title}>
+                    {article.title}
+                </h3>
 
-            {article.resource === "markdown" && (
-                <NextLink
-                    className={articleCardStyles.titleLink}
-                    href={`/articles/${article.id}`} />
-            )}
+                {article.resource === "markdown" && (
+                    <NextLink
+                        className={articleCardStyles.titleLink}
+                        href={`/articles/${article.id}`}/>
+                )}
 
-            {(article.resource == "qiita" || article.resource == "zenn") && (
-                <a
-                    className={articleCardStyles.titleLink}
-                    href={article.url} />
-            )}
+                {(article.resource == "qiita" || article.resource == "zenn") && (
+                    <a
+                        className={articleCardStyles.titleLink}
+                        href={article.url}/>
+                )}
 
-            {article.resource === "markdown" && (
-                <div className={articleCardStyles.resourceTagRoot}>
-                    {article.tags.slice(0, 3).map((tag, i) => (
-                        <TagLink tag={tag} key={i} />
-                    ))}
-                </div>
-            )}
-
-            {article.resource == "qiita" && (
-                <div className={articleCardStyles.resourceTagRoot}>
-                    <div className={articleCardStyles.resourceLink}>
-                        <Image
-                            src={getFaviconUrl(article.resource, 16)}
-                            alt="" width={16}
-                            height={16}
-                        />
-
-                        <span>{getTypeText(article.resource)}</span>
+                {article.resource === "markdown" && (
+                    <div className={articleCardStyles.resourceTagRoot}>
+                        {article.tags.slice(0, 3).map((tag, i) => (
+                            <TagLink tag={tag} key={i}/>
+                        ))}
                     </div>
+                )}
 
-                    <div style={{width: "0.5rem"}} />
+                {article.resource == "qiita" && (
+                    <div className={articleCardStyles.resourceTagRoot}>
+                        <div className={articleCardStyles.resourceLink}>
+                            <Image
+                                src={getFaviconUrl(article.resource, 16)}
+                                alt="" width={16}
+                                height={16}
+                            />
 
-                    {article.tags.slice(0, 3).map((tag, i) => (
-                        <TagLink tag={tag} key={i} />
-                    ))}
-                </div>
-            )}
+                            <span>{getTypeText(article.resource)}</span>
+                        </div>
 
-            {article.resource == "zenn" && (
-                <div className={articleCardStyles.resourceTagRoot}>
-                    <div className={articleCardStyles.resourceLink}>
-                        <Image
-                            src={getFaviconUrl(article.resource, 16)}
-                            alt="" width={16}
-                            height={16}
-                        />
+                        <div style={{width: "0.5rem"}}/>
 
-                        <span>{getTypeText(article.resource)}</span>
+                        {article.tags.slice(0, 3).map((tag, i) => (
+                            <TagLink tag={tag} key={i}/>
+                        ))}
                     </div>
-                </div>
-            )}
-        </article>
+                )}
+
+                {article.resource == "zenn" && (
+                    <div className={articleCardStyles.resourceTagRoot}>
+                        <div className={articleCardStyles.resourceLink}>
+                            <Image
+                                src={getFaviconUrl(article.resource, 16)}
+                                alt="" width={16}
+                                height={16}
+                            />
+
+                            <span>{getTypeText(article.resource)}</span>
+                        </div>
+                    </div>
+                )}
+            </article>
+        </div>
     );
 };

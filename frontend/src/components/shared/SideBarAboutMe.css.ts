@@ -4,7 +4,7 @@ import {DARK_MODE_SELECTOR} from "@/styles/darkModeSelector";
 
 import developerIcon from "@/components/resource/matsumo_icon.jpg";
 
-export const aboutMeStyles = {
+export const sideBarAboutMeStyles = {
     content: style({
         display: "flex",
         flexFlow: "column",

@@ -3,6 +3,10 @@ import {resources} from "@/styles/resources.css";
 import {DARK_MODE_SELECTOR} from "@/styles/darkModeSelector";
 
 export const articleCardStyles = {
+    content: style({
+        minWidth: "100%",
+    }),
+
     card: style({
         display: "flex",
         flexDirection: "column",

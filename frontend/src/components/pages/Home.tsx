@@ -8,15 +8,16 @@ import {SideBar} from "@/components/shared/SideBar";
 
 type Props = {
     articles: AllArticleHeader[];
+    tag: string | null;
 };
 
-export const Home: FC<Props> = ({articles}) => {
+export const Home: FC<Props> = ({articles, tag}) => {
     return (
         <div>
             <Header/>
             <main className={homeStyles.container}>
-                <ArticleList articles={articles}/>
-                <SideBar />
+                <ArticleList articles={articles} tag={tag}/>
+                <SideBar articles={articles} />
             </main>
             <Footer/>
         </div>

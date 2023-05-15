@@ -1,13 +1,16 @@
 import {FC} from "react";
 import {sideBarStyle} from "@/components/shared/SideBar.css";
-import {SideNewArticles} from "@/components/shared/SideNewArticles";
-import {AboutMe} from "@/components/shared/AboutMe";
+import {SideBarAboutMe} from "@/components/shared/SideBarAboutMe";
+import {SideBarTagList} from "@/components/shared/SideBarTagList";
+import {AllArticleHeader} from "@/models";
 
-export const SideBar: FC = () => {
+type Props = { articles: AllArticleHeader[] };
+
+export const SideBar: FC<Props> = ({articles}) => {
     return (
         <div className={sideBarStyle}>
-            <AboutMe />
-            <SideNewArticles />
+            <SideBarAboutMe />
+            <SideBarTagList tags={[... new Set(articles.map(article => (article.tags)).flat())]}/>
         </div>
     )
 }

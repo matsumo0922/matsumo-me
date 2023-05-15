@@ -6,8 +6,8 @@ export const sideBarStyle = style({
    maxWidth: resources.sideBarMaxWidth,
    display: "flex",
    flexFlow: "column",
-   flexBasis: "30%",
    alignItems: "flex-start",
-   gap: resources.spacing[4],
+   gap: resources.spacing[6],
+   paddingTop: resources.spacing[2],
    paddingLeft: resources.spacing[8],
 });

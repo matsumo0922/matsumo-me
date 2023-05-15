@@ -31,7 +31,8 @@ export const articleStyles = {
         borderBottom: resources.borders[1],
         borderBottomColor: resources.colors.gray[200],
         width: "100%",
-        margin: resources.spacing[1],
+        marginTop: resources.spacing[8],
+        marginBottom: resources.spacing[8],
 
         selectors: {
             [`${DARK_MODE_SELECTOR} &`]: {
@@ -63,15 +64,9 @@ export const articleStyles = {
         marginBottom: resources.spacing[16],
     }),
 
-    adsense: style({
-        marginBottom: resources.spacing[16],
-    }),
-
     externalLinks: style({
         marginBottom: resources.spacing[16],
     }),
-
-    shareButtons: wrapItems,
 
     githubLink: style({
         display: "inline-flex",
@@ -89,6 +84,4 @@ export const articleStyles = {
     githubIcon: style({
         fontSize: resources.fontSizes["2xl"],
     }),
-
-    linkToArticles: center,
 };

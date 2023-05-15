@@ -7,7 +7,7 @@ export const TagLink: FC<{ tag: string }> = ({ tag }) => {
         <NextLink
             className={tagLinkStyle}
             key={tag}
-            href={""}>
+            href={{pathname: "/", query: `tag=${tag}`}}>
             {tag}
         </NextLink>
     );

@@ -22,6 +22,7 @@ export const articleListStyles = {
     list: style({
         display: "flex",
         flexFlow: "column",
+        width: "100%",
         gap: resources.spacing[6],
     }),
 };

@@ -64,4 +64,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << "backend"
+  config.hosts << "matsumo-me-api.fly.dev"
 end

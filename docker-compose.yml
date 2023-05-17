@@ -2,20 +2,18 @@ version: '3.7'
 
 services:
   db:
-    image: mysql:8.0.20
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sql-mode=NO_ENGINE_SUBSTITUTION
+    image: postgres:15
     environment:
-      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
-      MYSQL_DATABASE: "${DB_NAME}"
-      MYSQL_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_USER: "${DB_USERNAME}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_DB: "${DB_NAME}"
     ports:
-      - "3307:3306"
+      - "5433:5432"
     volumes:
-      - mysql-db:/var/lib/mysql
+      - pg-db:/var/lib/postgresql/data
 
   backend:
     stdin_open: true
-    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 8080 -b '0.0.0.0'"
     tty: true
     depends_on:
       - db
@@ -46,5 +44,5 @@ services:
       - WATCHPACK_POLLING=true
 
 volumes:
-  mysql-db:
+  pg-db:
     driver: local

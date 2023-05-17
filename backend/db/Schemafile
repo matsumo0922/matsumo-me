@@ -1,55 +1,55 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+create_table "articles", force: :cascade, charset: "utf8mb4" do |t|
     t.string "title", null: false
     t.string "resource", null: false
-    t.datetime "published_at", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.timestamp "published_at", null: false
+    t.timestamp "created_at", null: false
+    t.timestamp "updated_at", null: false
 end
 
-create_table "article_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+create_table "article_tags", force: :cascade, charset: "utf8mb4" do |t|
     t.integer "article_id", null: false
     t.string "tag", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.timestamp "created_at", null: false
+    t.timestamp "updated_at", null: false
 end
 
-create_table "article_markdowns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+create_table "article_markdowns", force: :cascade, charset: "utf8mb4" do |t|
     t.integer "article_id", null: false
     t.string "url", null: false
     t.string "title", null: false
-    t.longtext "body", null: false
-    t.datetime "published_at", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text "body", null: false
+    t.timestamp "published_at", null: false
+    t.timestamp "created_at", null: false
+    t.timestamp "updated_at", null: false
 end
 
-create_table "article_qiitas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+create_table "article_qiitas", force: :cascade, charset: "utf8mb4" do |t|
     t.integer "article_id", null: false
     t.string "url", null: false
     t.string "title", null: false
-    t.longtext "body", null: false
+    t.text "body", null: false
     t.integer "likes_count", null: false
     t.integer "stocks_count", null: false
     t.integer "comments_count", null: false
-    t.datetime "published_at", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.timestamp "published_at", null: false
+    t.timestamp "created_at", null: false
+    t.timestamp "updated_at", null: false
 end
 
-create_table "article_zenns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+create_table "article_zenns", force: :cascade, charset: "utf8mb4" do |t|
     t.integer "article_id", null: false
     t.string "url", null: false
     t.string "title", null: false
-    t.longtext "description", null: false
-    t.datetime "published_at", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text "description", null: false
+    t.timestamp "published_at", null: false
+    t.timestamp "created_at", null: false
+    t.timestamp "updated_at", null: false
 end
 
-create_table "article_browse_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+create_table "article_browse_histories", force: :cascade, charset: "utf8mb4" do |t|
     t.integer "article_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.timestamp "created_at", null: false
+    t.timestamp "updated_at", null: false
 end

@@ -10,17 +10,20 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
 
 development:
   <<: *default
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
   database: <%= ENV['DB_NAME'] %>
 
 production:
   <<: *default
-  database: <%= ENV['DB_NAME'] %>
+  username: "postgres"
+  password: "XRBkVsw67TqjKPH"
+  host: "matsumo-me-api-db.internal"
+  database: "matsumo-me-api-db"

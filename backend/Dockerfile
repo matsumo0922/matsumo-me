@@ -17,3 +17,5 @@ RUN bundle install
 COPY . $APP/
 
 RUN rm -f tmp/pids/server.pid
+
+CMD /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 8080 -b '0.0.0.0'"

@@ -41,7 +41,7 @@ export const articleStyles = {
         },
     }),
 
-    dateTimes: style([
+    articleInfo: style([
         vStack,
         {
             gap: resources.spacing[1],

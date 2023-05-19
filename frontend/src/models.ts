@@ -33,3 +33,9 @@ export type ZennArticleHeader = ArticleHeaderBase & {
 }
 
 export type ArticleHeader = MarkdownArticleHeader | QiitaArticleHeader | ZennArticleHeader;
+
+export type BrowseHistoryHeader = {
+    id: number;
+    articleId: number;
+    createdAt: string;
+}

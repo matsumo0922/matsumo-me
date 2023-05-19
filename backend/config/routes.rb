@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         resources :markdown, only: %i[index show], module: :articles
         resources :qiita, only: :index, module: :articles
         resources :zenn, only: :index, module: :articles
+        resources :browse_history, only: %i(index show), module: :articles
         post :browse, to: "articles#browse"
       end
     end

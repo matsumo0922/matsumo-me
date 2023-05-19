@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {MarkdownArticleHeader} from "@/models";
+import {BrowseHistoryHeader, MarkdownArticleHeader} from "@/models";
 import {Header} from "@/components/shared/Header";
 import {Footer} from "@/components/shared/Footer";
 import {articleStyles} from "@/components/pages/Article.css";
@@ -10,9 +10,10 @@ import {MarkdownRenderer} from "@/components/shared/Markdown";
 
 type Props = {
     article: MarkdownArticleHeader;
+    histories:[BrowseHistoryHeader];
 };
 
-export const Article: FC<Props> = ({ article }) => {
+export const Article: FC<Props> = ({ article, histories }) => {
     return (
         <div>
             <Header />
@@ -20,13 +21,18 @@ export const Article: FC<Props> = ({ article }) => {
                 <div className={articleStyles.articleHeader}>
                     <PageTitle>{article.title}</PageTitle>
 
-                    <div className={articleStyles.dateTimes}>
+                    <div className={articleStyles.articleInfo}>
                         <p className={articleStyles.dateTime}>
                             公開:{" "}
                             <DateTime
                                 format="yyyy年MM月dd日 HH時mm分"
                                 datetime={article.publishedAt}
                             />
+                        </p>
+
+                        <p className={articleStyles.dateTime}>
+                            閲覧数:{" "}
+                            {histories?.length}
                         </p>
                     </div>
 

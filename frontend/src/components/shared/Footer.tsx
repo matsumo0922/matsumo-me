@@ -14,7 +14,7 @@ export const Footer: FC = () => {
         <div>
             <footer className={footerStyles.footer}>
                 <p className={footerStyles.description}>
-                    Google Analytics とか AdMob とか使っている旨の表記
+                    このサイトは Google Analytics, Cookie を使用しています
                 </p>
                 <small>
                     &copy;{copyrightPeriod}{" "}

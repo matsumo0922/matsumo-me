@@ -38,7 +38,7 @@ namespace :blog do
 
   def fetch_zenn
     ActiveRecord::Base.transaction do
-      res = Faraday.get("https://api.rss2json.com/v1/api.json?rss_url=https://zenn.dev/caios/feed")
+      res = Faraday.get("https://api.rss2json.com/v1/api.json?rss_url=https://zenn.dev/matsumo0922/feed")
       return false if res.status != 200
 
       items = JSON.parse(res.body)["items"]
@@ -67,7 +67,7 @@ namespace :blog do
         attributes = {
           title: front_matter.front_matter["title"],
           body: front_matter.content,
-          url: "https://github.com/CAIOS0922/matsumo-me/tree/master/backend/articles/#{File.basename(path)}",
+          url: "https://github.com/matsumo0922/matsumo-me/tree/master/backend/articles/#{File.basename(path)}",
           published_at: front_matter.front_matter["published_at"],
         }
 
